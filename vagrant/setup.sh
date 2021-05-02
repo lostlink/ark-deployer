@@ -22,6 +22,11 @@ if [[ ! -d ~/ark-deployer/ ]]; then
     ln -s /vagrant ~/ark-deployer
 fi
 
+## Install SSH Key
+cat >> ~/.ssh/authorized_keys <<- EOS
+ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEApFpZazq9BLhb6/2M0pB3t3enKu3HRUGBvDCyYtwQN8WzjjwIlIaPg5gSpQ40nVK9mHD3IcgmfjbEEbxXB0F8CVOi80n1wM+xfvwhuE8gF+D0haOj0/8PN/xXQPKcqdLelicZGYW7DCfhz6hHQIcX54el03Ka9j/H001nQp8NROJJDJ2PeclN/OKLIlk7jt68N+yYrnMlE3s/HAYVMz67whjb623bU69NOw3bkIknPsXr2XlNoKnkiQrt0TRXpoBGpndbVrVzIw1H9d87nuk3mciFYawG8/9tFj2MD9dRXrvJRplipncKqH/fcNgdJg4F3bClXlhMxaNxiWed/BJMfQ==
+EOS
+
 ## Config
 CONFIG_PATH="/vagrant/vagrant/config.json"
 CHAIN_NAME=$(jq -r '.chainName' "$CONFIG_PATH")
